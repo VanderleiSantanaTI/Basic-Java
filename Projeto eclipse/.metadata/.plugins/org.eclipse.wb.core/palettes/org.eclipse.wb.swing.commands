@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	<removeEntry
+		id="org.eclipse.wb.swing.layouts javax.swing.SpringLayout"/>
+	<editCategory
+		id="org.eclipse.wb.swing.layouts"
+		name="Layouts"
+		description="Swing/AWT layout managers"
+		visible="true"
+		open="true"/>
+</commands>
