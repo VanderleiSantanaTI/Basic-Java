@@ -1,0 +1,77 @@
+### Teste de Saúde da API
+GET http://localhost:8080/api/auth/health
+
+### Registrar um novo usuário
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "João Silva",
+  "email": "joao@example.com",
+  "password": "senha123"
+}
+
+### Fazer login
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "joao@example.com",
+  "password": "senha123"
+}
+
+### Fazer login com usuário admin padrão
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin",
+  "password": "admin"
+}
+
+### Listar todos os usuários (requer token JWT de admin)
+GET http://localhost:8080/api/users
+Authorization: Bearer SEU_TOKEN_JWT_AQUI
+
+### Buscar usuário por ID (requer token JWT)
+GET http://localhost:8080/api/users/1
+Authorization: Bearer SEU_TOKEN_JWT_AQUI
+
+### Atualizar usuário (requer token JWT)
+PUT http://localhost:8080/api/users/1
+Content-Type: application/json
+Authorization: Bearer SEU_TOKEN_JWT_AQUI
+
+{
+  "name": "João Silva Atualizado",
+  "email": "joao.novo@example.com",
+  "password": "novaSenha123"
+}
+
+### Endpoint público de exemplo
+GET http://localhost:8080/api/example/public
+
+### Endpoint para usuários (requer token JWT)
+GET http://localhost:8080/api/example/user
+Authorization: Bearer SEU_TOKEN_JWT_AQUI
+
+### Endpoint para administradores (requer token JWT de admin)
+GET http://localhost:8080/api/example/admin
+Authorization: Bearer SEU_TOKEN_JWT_AQUI
+
+### Enviar dados (requer token JWT)
+POST http://localhost:8080/api/example/data
+Content-Type: application/json
+Authorization: Bearer SEU_TOKEN_JWT_AQUI
+
+{
+  "nome": "Teste",
+  "idade": 25,
+  "cidade": "São Paulo"
+}
+
+### Health Check do Actuator
+GET http://localhost:8080/api/actuator/health
+
+### Informações da aplicação
+GET http://localhost:8080/api/actuator/info 

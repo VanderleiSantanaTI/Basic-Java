@@ -1,0 +1,73 @@
+spring:
+  application:
+    name: spring-backend
+  
+  # Permitir referências circulares temporariamente
+  main:
+    allow-circular-references: true
+  
+  # Configuração do banco de dados
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  
+  # Configuração JPA
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+  
+  # Configuração H2 Console (apenas para desenvolvimento)
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  
+  # Configuração de segurança
+  security:
+    user:
+      name: admin
+      password: admin
+
+# Configuração do servidor
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+# Configuração do JWT
+jwt:
+  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+  expiration: 86400000 # 24 horas em milissegundos
+
+# Configuração do Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+# Configuração do Swagger/OpenAPI
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+
+# Configuração de logging
+logging:
+  level:
+    com.example.springbackend: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE 
